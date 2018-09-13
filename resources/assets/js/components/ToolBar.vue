@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
 
 export default {
   props: {
@@ -49,18 +49,18 @@ export default {
       this.$emit('toggleDrawer')
     },
     async logout () {
-      this.busy = true
+      this.busy = true;
 
       if (this.drawer) {
-        this.toggleDrawer()
+        this.toggleDrawer();
       }
 
       // Log out the user.
-      await this.$store.dispatch('logout')
-      this.busy = false
+      await this.$store.dispatch('logout');
+      this.busy = false;
 
       // Redirect to login.
-      this.$router.push({ name: 'login' })
+      this.$router.push({ name: 'login' });
     }
   }
 }

@@ -1,19 +1,19 @@
-import axios from 'axios'
-import store from '~/store'
-import router from '~/router'
-import i18n from './vue-i18n'
+import axios from 'axios';
+import store from '~/store';
+import router from '~/router';
+import i18n from './vue-i18n';
 
-axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 axios.interceptors.request.use(request => {
   if (store.getters.authToken) {
     request.headers.common['Authorization'] = `Bearer ${store.getters.authToken}`
   }
-  return request
-})
+  return request;
+});
 
 axios.interceptors.response.use(response => response, error => {
-  const { status } = error.response
+  const { status } = error.response;
 
   if (status >= 500) {
     store.dispatch('responseMessage', {
@@ -32,11 +32,11 @@ axios.interceptors.response.use(response => response, error => {
       modal: true
     })
     .then(async () => {
-      await store.dispatch('logout')
+      await store.dispatch('logout');
 
-      router.push({ name: 'login' })
+      router.push({ name: 'login' });
     })
   }
 
-  return Promise.reject(error)
-})
+  return Promise.reject(error);
+});

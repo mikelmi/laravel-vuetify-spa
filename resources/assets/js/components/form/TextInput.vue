@@ -56,19 +56,19 @@ export default {
 
   computed: {
     errorMessages () {
-      return this.vErrors.collect(this.name)
+      return this.vErrors.collect(this.name);
     },
     errorClass () {
-      return this.form.errors.has(this.name) && 'input-group--error error--text'
+      return this.form.errors.has(this.name) && 'input-group--error error--text';
     },
     _value: {
       get () {
         return this.value
       },
       set (value) {
-        value = value || ''
-        this.$emit('update:value', value.trim())
-        this.$emit('input', value.trim())
+        value = value || '';
+        this.$emit('update:value', value.trim());
+        this.$emit('input', value.trim());
       }
     }
   }

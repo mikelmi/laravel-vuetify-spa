@@ -5,9 +5,9 @@
 </template>
 
 <script>
-const files = require.context('!svg-sprite-loader!./../../icons', false, /.*\.svg$/)
+const files = require.context('!svg-sprite-loader!./../../icons', false, /.*\.svg$/);
 
-files.keys().forEach(files)
+files.keys().forEach(files);
 
 export default {
   name: 'svg-icon',

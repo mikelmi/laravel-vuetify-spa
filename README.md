@@ -2,7 +2,7 @@
 
 > A Laravel-Vue SPA starter project template with Vuetify frontend. 
 
-Forked from https://github.com/cretueusebiu/laravel-vue-spa
+Forked from https://github.com/elcobvg/laravel-vuetify-spa
 
 ## Features
 
@@ -17,7 +17,7 @@ Forked from https://github.com/cretueusebiu/laravel-vue-spa
 
 ## Installation
 
-- `git clone https://github.com/elcobvg/laravel-vuetify-spa.git`
+- `git clone https://github.com/mikelmi/laravel-vuetify-spa
 - `cd laravel-vue-spa`
 - `cp .env.example .env`
 - `composer install`

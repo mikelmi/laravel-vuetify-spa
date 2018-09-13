@@ -23,12 +23,12 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
 
-import NavMenu from '~/components/NavMenu'
-import ToolBar from '~/components/ToolBar'
-import FeedbackMessage from '~/components/FeedbackMessage'
-import PageFooter from '~/components/PageFooter'
+import NavMenu from '~/components/NavMenu';
+import ToolBar from '~/components/ToolBar';
+import FeedbackMessage from '~/components/FeedbackMessage';
+import PageFooter from '~/components/PageFooter';
 
 export default {
   components: {

@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'feedback-message',
@@ -27,7 +27,7 @@ export default {
   ]),
   methods: {
     close () {
-      this.$store.dispatch('clearMessage')
+      this.$store.dispatch('clearMessage');
     }
   }
 }

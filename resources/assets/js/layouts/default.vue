@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import FeedbackMessage from '~/components/FeedbackMessage'
+import FeedbackMessage from '~/components/FeedbackMessage';
 
 export default {
   name: 'default-layout',

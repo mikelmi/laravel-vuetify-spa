@@ -4,8 +4,19 @@ namespace App;
 
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * Class User
+ * @package App
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property string $password
+ * @property boolean $is_admin
+ */
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
@@ -28,6 +39,10 @@ class User extends Authenticatable implements JWTSubject
         'password', 'remember_token',
     ];
 
+    protected $casts = [
+        'is_admin' => 'bool'
+    ];
+
     /**
      * @return int
      */
@@ -42,5 +57,9 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function isAdmin(): bool {
+        return $this->getAttribute('is_admin');
     }
 }

@@ -54,14 +54,14 @@ export default {
 
   methods: {
     async update () {
-      if (await this.formHasErrors()) return
+      if (await this.formHasErrors()) return;
 
-      this.$emit('busy', true)
+      this.$emit('busy', true);
 
-      await this.form.patch('/api/settings/password')
+      await this.form.patch('/api/settings/password');
 
-      this.form.reset()
-      this.$emit('busy', false)
+      this.form.reset();
+      this.$emit('busy', false);
 
       this.$store.dispatch('responseMessage', {
         type: 'success',

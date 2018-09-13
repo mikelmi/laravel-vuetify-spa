@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import Form from 'vform'
+import Form from 'vform';
 
 export default {
   name: 'email-view',
@@ -47,14 +47,14 @@ export default {
 
   methods: {
     async send () {
-      if (await this.formHasErrors()) return
+      if (await this.formHasErrors()) return;
 
-      const { data } = await this.form.post('/api/password/email')
+      const { data } = await this.form.post('/api/password/email');
 
       this.$store.dispatch('responseMessage', {
         type: 'success',
         text: data.status
-      })
+      });
 
       this.$router.push({ name: 'welcome' })
     }

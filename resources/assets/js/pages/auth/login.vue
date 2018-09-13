@@ -7,6 +7,7 @@
           <v-card-title primary-title>
             <h3 class="headline mb-0">{{ $t('login') }}</h3>
           </v-card-title>
+
           <v-card-text>
 
             <!-- Email -->
@@ -16,7 +17,7 @@
               :v-errors="errors"
               :value.sync="form.email"
               name="email"
-              prepend="person_outline"
+              prepend="person"
               v-validate="'required|email'"
             ></email-input>
 
@@ -25,7 +26,7 @@
               :v-errors="errors"
               :form="form"
               :value.sync="form.password"
-              prepend="lock_outline"
+              prepend="lock"
               v-validate="'required|min:8'"
             ></password-input>
 
@@ -38,17 +39,17 @@
               value="true"
             ></v-checkbox>
 
-            <submit-button :block="true" :form="form" :label="$t('login')"></submit-button>
-
+            <submit-button block :form="form" :label="$t('login')"></submit-button>
           </v-card-text>
+
           <v-card-actions>
-            <router-link :to="{ name: 'register' }">
+            <v-btn flat color="primary" :to="{ name: 'register' }">
               {{ $t('register') }}
-            </router-link>
+            </v-btn>
             <v-spacer></v-spacer>
-            <router-link :to="{ name: 'password.request' }">
+            <v-btn flat color="accent" :to="{ name: 'password.request' }">
               {{ $t('forgot_password') }}
-            </router-link>
+            </v-btn>
           </v-card-actions>
         </form>
       </v-card>
@@ -57,7 +58,7 @@
 </template>
 
 <script>
-import Form from 'vform'
+import Form from 'vform';
 
 export default {
   name: 'login-view',
@@ -76,21 +77,21 @@ export default {
 
   methods: {
     async login () {
-      if (await this.formHasErrors()) return
-      this.busy = true
+      if (await this.formHasErrors()) return;
+      this.busy = true;
 
       // Submit the form.
-      const { data } = await this.form.post('/api/login')
+      const { data } = await this.form.post('/api/login').catch(_ => this.busy = false);
 
       // Save the token.
       this.$store.dispatch('saveToken', {
         token: data.token,
         remember: this.remember
-      })
+      });
 
       // Fetch the user.
-      await this.$store.dispatch('fetchUser')
-      this.busy = false
+      await this.$store.dispatch('fetchUser');
+      this.busy = false;
 
       // Redirect home.
       this.$router.push({ name: 'home' })

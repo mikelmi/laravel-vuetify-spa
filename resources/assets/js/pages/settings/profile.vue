@@ -36,8 +36,8 @@
 </template>
 
 <script>
-import Form from 'vform'
-import { mapGetters } from 'vuex'
+import Form from 'vform';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'profile-view',
@@ -61,14 +61,14 @@ export default {
 
   methods: {
     async update () {
-      if (await this.formHasErrors()) return
+      if (await this.formHasErrors()) return;
 
-      this.$emit('busy', true)
+      this.$emit('busy', true);
 
-      const { data } = await this.form.patch('/api/settings/profile')
+      const { data } = await this.form.patch('/api/settings/profile');
 
-      await this.$store.dispatch('updateUser', { user: data })
-      this.$emit('busy', false)
+      await this.$store.dispatch('updateUser', { user: data });
+      this.$emit('busy', false);
 
       this.$store.dispatch('responseMessage', {
         type: 'success',

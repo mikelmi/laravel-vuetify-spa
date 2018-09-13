@@ -1,6 +1,6 @@
 <template>
   <v-footer :fixed="fixed" app>
-    <span>&copy; 2017</span>
+    <div class="pl-3" v-html="text"></div>
   </v-footer>
 </template>
 
@@ -10,6 +10,11 @@ export default {
     return {
       fixed: false
     }
-  }
+  },
+    computed: {
+      text() {
+          return '&copy;' + (new Date()).getFullYear();
+      }
+    }
 }
 </script>

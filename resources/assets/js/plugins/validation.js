@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import VeeValidate from 'vee-validate'
+import Vue from 'vue';
+import VeeValidate from 'vee-validate';
 
-Vue.use(VeeValidate, { delay: 250 })
+Vue.use(VeeValidate, { delay: 250 });
 
 Vue.mixin({
   $_veeValidate: {
@@ -9,11 +9,11 @@ Vue.mixin({
   },
   methods: {
     async formHasErrors () {
-      const valid = await this.$validator.validateAll()
+      const valid = await this.$validator.validateAll();
       if (valid) {
         this.$validator.pause()
       }
       return !valid
     }
   }
-})
+});

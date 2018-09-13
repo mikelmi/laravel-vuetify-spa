@@ -8,19 +8,19 @@
 </template>
 
 <script>
-import Loading from './Loading'
+import Loading from './Loading';
 
 // Load layout components dynamically.
-const requireContext = require.context('../layouts', false, /.*\.vue$/)
+const requireContext = require.context('../layouts', false, /.*\.vue$/);
 
 const layouts = requireContext.keys()
   .map(file =>
     [file.replace(/(^.\/)|(\.vue$)/g, ''), requireContext(file)]
   )
   .reduce((components, [name, component]) => {
-    components[name] = component
-    return components
-  }, {})
+    components[name] = component;
+    return components;
+  }, {});
 
 export default {
 
@@ -29,7 +29,7 @@ export default {
   },
 
   metaInfo () {
-    const { appName } = window.config
+    const { appName } = window.config;
 
     return {
       title: appName,
@@ -54,10 +54,10 @@ export default {
      */
     setLayout (layout) {
       if (!layout || !layouts[layout]) {
-        layout = this.defaultLayout
+        layout = this.defaultLayout;
       }
 
-      this.layout = layouts[layout]
+      this.layout = layouts[layout];
     }
   }
 }

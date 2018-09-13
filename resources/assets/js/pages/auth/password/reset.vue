@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import Form from 'vform'
+import Form from 'vform';
 
 export default {
   name: 'reset-view',
@@ -74,28 +74,28 @@ export default {
 
   methods: {
     async reset () {
-      if (await this.formHasErrors()) return
+      if (await this.formHasErrors()) return;
 
-      this.form.token = this.$route.params.token
+      this.form.token = this.$route.params.token;
 
-      const response = await this.form.post('/api/password/reset')
+      const response = await this.form.post('/api/password/reset');
 
       // Login user if reset successful.
-      const { data } = await this.form.post('/api/login')
+      const { data } = await this.form.post('/api/login');
 
       // Save the token.
       this.$store.dispatch('saveToken', {
         token: data.token,
         remember: false
-      })
+      });
 
       // Fetch the user.
-      await this.$store.dispatch('fetchUser')
+      await this.$store.dispatch('fetchUser');
 
       this.$store.dispatch('responseMessage', {
         type: 'success',
         text: response.data.status
-      })
+      });
 
       // Redirect home.
       this.$router.push({ name: 'home' })

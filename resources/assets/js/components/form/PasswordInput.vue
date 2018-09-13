@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import i18n from '~/plugins/vue-i18n'
-import TextInput from './TextInput'
+import i18n from '~/plugins/vue-i18n';
+import TextInput from './TextInput';
 
 export default {
   extends: TextInput,
@@ -47,17 +47,17 @@ export default {
   computed: {
     icon () {
       if (this.hideIcon) {
-        return ''
+        return '';
       } else if (this.eye) {
-        return 'visibility'
+        return 'visibility';
       }
-      return 'visibility_off'
+      return 'visibility_off';
     },
     _eye () {
       if (this.hide !== null) {
-        return this.hide
+        return this.hide;
       }
-      return this.eye
+      return this.eye;
     }
   },
 
@@ -69,14 +69,14 @@ export default {
 
   methods: {
     toggleVisibility () {
-      this.eye = !this.eye
-      this.$emit('eye', this.eye)
+      this.eye = !this.eye;
+      this.$emit('eye', this.eye);
     }
   },
 
   watch: {
     eye () {
-      this.$emit('eye', this.eye)
+      this.$emit('eye', this.eye);
     }
   }
 }
