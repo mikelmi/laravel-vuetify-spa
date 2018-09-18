@@ -9,12 +9,12 @@ export default {
   data () {
     return {
       fixed: false
-    }
+    };
   },
-    computed: {
-      text() {
-          return '&copy;' + (new Date()).getFullYear();
-      }
+  computed: {
+    text () {
+      return '&copy;' + (new Date()).getFullYear();
     }
-}
+  }
+};
 </script>

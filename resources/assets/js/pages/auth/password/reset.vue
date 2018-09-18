@@ -26,7 +26,8 @@
               :v-errors="errors"
               :value.sync="form.password"
               v-on:eye="eye = $event"
-              v-validate="'required|min:8'"
+              v-validate="'required|min:6'"
+              ref="password"
             ></password-input>
 
             <!-- Password Confirmation -->
@@ -41,10 +42,10 @@
               name="password_confirmation"
               v-validate="'required|confirmed:password'"
             ></password-input>
-            
+
           </v-card-text>
           <v-card-actions>
-            <submit-button :flat="true" :form="form" :label="$t('reset_password')"></submit-button>
+            <submit-button :form="form" :label="$t('reset_password')"></submit-button>
           </v-card-actions>
         </form>
       </v-card>
@@ -57,11 +58,11 @@ import Form from 'vform';
 
 export default {
   name: 'reset-view',
-  
+
   metaInfo () {
-    return { title: this.$t('reset_password') }
+    return { title: this.$t('reset_password') };
   },
-  
+
   data: () => ({
     form: new Form({
       token: '',
@@ -98,8 +99,8 @@ export default {
       });
 
       // Redirect home.
-      this.$router.push({ name: 'home' })
+      this.$router.push({ name: 'home' });
     }
   }
-}
+};
 </script>

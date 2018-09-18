@@ -64,7 +64,7 @@ export default {
   data () {
     return {
       eye: true
-    }
+    };
   },
 
   methods: {
@@ -79,5 +79,5 @@ export default {
       this.$emit('eye', this.eye);
     }
   }
-}
+};
 </script>

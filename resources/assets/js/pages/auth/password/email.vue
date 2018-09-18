@@ -21,7 +21,7 @@
 
           </v-card-text>
           <v-card-actions>
-            <submit-button :flat="true" :form="form" :label="$t('send_password_reset_link')"></submit-button>
+            <submit-button :form="form" :label="$t('send_password_reset_link')"></submit-button>
           </v-card-actions>
         </form>
       </v-card>
@@ -34,9 +34,9 @@ import Form from 'vform';
 
 export default {
   name: 'email-view',
-  
+
   metaInfo () {
-    return { title: this.$t('reset_password') }
+    return { title: this.$t('reset_password') };
   },
 
   data: () => ({
@@ -56,8 +56,8 @@ export default {
         text: data.status
       });
 
-      this.$router.push({ name: 'welcome' })
+      this.$router.push({ name: 'welcome' });
     }
   }
-}
+};
 </script>

@@ -1,7 +1,7 @@
 <template>
-  <v-progress-linear 
+  <v-progress-linear
     v-model="percent"
-    height="2" 
+    height="2"
     v-show="show"
     :color="canSuccess ? color : failedColor"
   >
@@ -38,7 +38,7 @@ export default {
           this.finish();
         }
       }, 100);
-      return this
+      return this;
     },
     set (num) {
       this.show = true;
@@ -74,8 +74,8 @@ export default {
         Vue.nextTick(() => {
           setTimeout(() => {
             this.percent = 0;
-          }, 200)
-        })
+          }, 200);
+        });
       }, 500);
       return this;
     },
@@ -84,7 +84,7 @@ export default {
       return this;
     }
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

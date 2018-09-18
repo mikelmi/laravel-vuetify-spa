@@ -14,7 +14,7 @@
 export default {
   name: 'home-view',
   metaInfo () {
-    return { title: this.$t('home') }
+    return { title: this.$t('home') };
   }
-}
+};
 </script>

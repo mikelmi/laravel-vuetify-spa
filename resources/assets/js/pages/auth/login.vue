@@ -27,7 +27,7 @@
               :form="form"
               :value.sync="form.password"
               prepend="lock"
-              v-validate="'required|min:8'"
+              v-validate="'required'"
             ></password-input>
 
             <!-- Remember Me -->
@@ -63,7 +63,7 @@ import Form from 'vform';
 export default {
   name: 'login-view',
   metaInfo () {
-    return { title: this.$t('login') }
+    return { title: this.$t('login') };
   },
   data: () => ({
     form: new Form({
@@ -81,7 +81,7 @@ export default {
       this.busy = true;
 
       // Submit the form.
-      const { data } = await this.form.post('/api/login').catch(_ => this.busy = false);
+      const { data } = await this.form.post('/api/login').catch(_ => { this.busy = false; });
 
       // Save the token.
       this.$store.dispatch('saveToken', {
@@ -94,8 +94,8 @@ export default {
       this.busy = false;
 
       // Redirect home.
-      this.$router.push({ name: 'home' })
+      this.$router.push({ name: 'home' });
     }
   }
-}
+};
 </script>

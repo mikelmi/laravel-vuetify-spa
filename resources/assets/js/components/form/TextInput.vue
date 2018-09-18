@@ -51,7 +51,7 @@ export default {
       type: String,
       default: ''
     },
-    browserAutocomplete: String,
+    browserAutocomplete: String
   },
 
   computed: {
@@ -63,7 +63,7 @@ export default {
     },
     _value: {
       get () {
-        return this.value
+        return this.value;
       },
       set (value) {
         value = value || '';
@@ -72,5 +72,5 @@ export default {
       }
     }
   }
-}
+};
 </script>

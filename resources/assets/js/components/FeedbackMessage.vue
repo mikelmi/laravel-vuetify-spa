@@ -30,7 +30,7 @@ export default {
       this.$store.dispatch('clearMessage');
     }
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

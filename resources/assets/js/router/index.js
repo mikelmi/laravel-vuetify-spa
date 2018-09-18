@@ -45,10 +45,10 @@ function make (routes) {
   router.afterEach((to, from) => {
     router.app.$nextTick(() => {
       router.app.$loading.finish();
-    })
+    });
   });
 
-  return router
+  return router;
 }
 
 /**
@@ -70,7 +70,7 @@ function setLayout (router, to) {
 
       // Set application layout.
       router.app.setLayout(component.layout || '');
-    })
+    });
   }
 }
 
@@ -86,11 +86,11 @@ function authGuard (routes) {
       next({
         name: 'login',
         query: { redirect: to.fullPath }
-      })
+      });
     } else {
       next();
     }
-  })
+  });
 }
 
 /**
@@ -106,7 +106,7 @@ function guestGuard (routes) {
     } else {
       next();
     }
-  })
+  });
 }
 
 /**
@@ -118,8 +118,8 @@ function guestGuard (routes) {
  */
 function beforeEnter (routes, beforeEnter) {
   return routes.map(route => {
-    return { ...route, beforeEnter }
-  })
+    return { ...route, beforeEnter };
+  });
 }
 
 /**

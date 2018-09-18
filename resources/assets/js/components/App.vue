@@ -34,7 +34,7 @@ export default {
     return {
       title: appName,
       titleTemplate: `%s · ${appName}`
-    }
+    };
   },
 
   data: () => ({
@@ -43,7 +43,7 @@ export default {
   }),
 
   mounted () {
-    this.$loading = this.$refs.loading
+    this.$loading = this.$refs.loading;
   },
 
   methods: {
@@ -60,5 +60,5 @@ export default {
       this.layout = layouts[layout];
     }
   }
-}
+};
 </script>

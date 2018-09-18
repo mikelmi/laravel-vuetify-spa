@@ -4,7 +4,7 @@
       <v-card>
         <progress-bar :show="busy"></progress-bar>
         <v-card-title primary-title class="grey lighten-4">
-          <h3 class="headline mb-0">{{ $t('settings') }}</h3>
+          <h3 class="headline mb-0">{{ $t('Account') }}</h3>
         </v-card-title>
         <v-divider></v-divider>
 
@@ -34,11 +34,11 @@
 </template>
 
 <script>
-import Profile from '~/pages/settings/profile';
-import Password from '~/pages/settings/password';
+import Profile from '~/pages/account/profile';
+import Password from '~/pages/account/password';
 
 export default {
-  name: 'settings-view',
+  name: 'account-view',
   components: {
     'profile-view': Profile,
     'password-view': Password
@@ -46,7 +46,7 @@ export default {
   data () {
     return {
       busy: false
-    }
+    };
   }
-}
+};
 </script>

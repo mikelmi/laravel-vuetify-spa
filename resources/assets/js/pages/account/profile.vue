@@ -29,7 +29,7 @@
 
       </v-card-text>
       <v-card-actions>
-        <submit-button :flat="true" :form="form" :label="$t('update')"></submit-button>
+        <submit-button :form="form" :label="$t('update')"></submit-button>
       </v-card-actions>
     </form>
   </v-card>
@@ -55,8 +55,8 @@ export default {
   created () {
     // Fill the form with user data.
     this.form.keys().forEach(key => {
-      this.form[key] = this.user[key]
-    })
+      this.form[key] = this.user[key];
+    });
   },
 
   methods: {
@@ -65,7 +65,7 @@ export default {
 
       this.$emit('busy', true);
 
-      const { data } = await this.form.patch('/api/settings/profile');
+      const { data } = await this.form.patch('/api/account/profile');
 
       await this.$store.dispatch('updateUser', { user: data });
       this.$emit('busy', false);
@@ -73,9 +73,9 @@ export default {
       this.$store.dispatch('responseMessage', {
         type: 'success',
         text: this.$t('info_updated')
-      })
+      });
     }
   }
-}
+};
 </script>
 

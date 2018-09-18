@@ -20,4 +20,4 @@ export default new Vuex.Store({
   strict: process.env.NODE_ENV !== 'production',
   modules,
   plugins: [createPersistedState({ storage: window.sessionStorage })]
-})
+});

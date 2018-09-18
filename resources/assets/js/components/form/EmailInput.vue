@@ -12,7 +12,7 @@
       type="email"
       v-model="_value"
     ></v-text-field>
-    <has-error :form="form" :field="name"></has-error> 
+    <has-error :form="form" :field="name"></has-error>
   </div>
 </template>
 
@@ -22,5 +22,5 @@ import TextInput from './TextInput';
 export default {
   extends: TextInput,
   name: 'email-input'
-}
+};
 </script>

@@ -48,7 +48,7 @@ export default {
   layout: 'default',
 
   metaInfo () {
-    return { title: this.$t('home') }
+    return { title: this.$t('home') };
   },
 
   computed: mapGetters({
@@ -58,5 +58,5 @@ export default {
   data: () => ({
     title: window.config.appName
   })
-}
+};
 </script>

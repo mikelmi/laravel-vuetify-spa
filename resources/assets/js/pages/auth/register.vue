@@ -40,7 +40,7 @@
               browser-autocomplete="new-password"
               v-on:eye="eye = $event"
               name="password"
-              v-validate="'required|min:8'"
+              v-validate="'required|min:6'"
               ref="password"
             ></password-input>
 
@@ -76,7 +76,7 @@ import Form from 'vform';
 export default {
   name: 'register-view',
   metaInfo () {
-    return { title: this.$t('register') }
+    return { title: this.$t('register') };
   },
 
   data: () => ({
@@ -106,8 +106,8 @@ export default {
       await this.$store.dispatch('updateUser', { user: data });
 
       // Redirect home.
-      this.$router.push({ name: 'home' })
+      this.$router.push({ name: 'home' });
     }
   }
-}
+};
 </script>

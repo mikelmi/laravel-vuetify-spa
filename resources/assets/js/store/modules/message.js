@@ -24,17 +24,17 @@ export const actions = {
   responseMessage ({ commit, state }, payload) {
     commit(types.RESPONSE_MSG, payload);
     if (!state.modal) {
-      setTimeout(() => { commit(types.CLEAR_MSG) }, 6500);
+      setTimeout(() => { commit(types.CLEAR_MSG); }, 6500);
     }
   },
   clearMessage ({ commit }) {
     commit(types.CLEAR_MSG);
   }
-}
+};
 
 // getters
 export const getters = {
   responseMessage: state => {
-    return { ...state }
+    return { ...state };
   }
 };

@@ -2,9 +2,9 @@
 
 namespace App;
 
+use App\Notifications\ResetPasswordNotification;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
@@ -61,5 +61,10 @@ class User extends Authenticatable implements JWTSubject
 
     public function isAdmin(): bool {
         return $this->getAttribute('is_admin');
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
     }
 }

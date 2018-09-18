@@ -13,7 +13,7 @@
           :v-errors="errors"
           :value.sync="form.password"
           v-on:eye="eye = $event"
-          v-validate="'required|min:8'"
+          v-validate="'required|min:6'"
         ></password-input>
 
         <!-- Password Confirmation -->
@@ -33,14 +33,14 @@
 
       </v-card-text>
       <v-card-actions>
-        <submit-button :flat="true" :form="form" :label="$t('update')"></submit-button>
+        <submit-button :form="form" :label="$t('update')"></submit-button>
       </v-card-actions>
     </form>
   </v-card>
 </template>
 
 <script>
-import Form from 'vform'
+import Form from 'vform';
 
 export default {
   name: 'password-view',
@@ -58,7 +58,7 @@ export default {
 
       this.$emit('busy', true);
 
-      await this.form.patch('/api/settings/password');
+      await this.form.patch('/api/account/password');
 
       this.form.reset();
       this.$emit('busy', false);
@@ -66,8 +66,8 @@ export default {
       this.$store.dispatch('responseMessage', {
         type: 'success',
         text: this.$t('password_updated')
-      })
+      });
     }
   }
-}
+};
 </script>

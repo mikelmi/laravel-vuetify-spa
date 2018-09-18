@@ -11,8 +11,30 @@
     <!-- Authenticated -->
     <template v-if="authenticated">
       <progress-bar :show="busy"></progress-bar>
-      <v-btn flat :to="{ name: 'settings.profile' }">{{ user.name }}</v-btn>
-      <v-btn flat @click.prevent="logout">{{ $t('logout') }}</v-btn>
+      <div class="hidden-xs-only">
+        <v-btn flat :to="{ name: 'account.profile' }">
+          <v-icon>account_circle</v-icon> &nbsp;
+          {{ user.name }}
+        </v-btn>
+        <v-btn icon @click.prevent="logout" :title="$t('logout')">
+          <v-icon>power_settings_new</v-icon>
+        </v-btn>
+      </div>
+      <div class="hidden-sm-and-up">
+        <v-menu offset-y>
+          <v-btn slot="activator" icon>
+            <v-icon>account_circle</v-icon>
+          </v-btn>
+          <v-list light>
+            <v-list-tile :to="{ name: 'account.profile' }">
+              <v-list-tile-title>{{ user.name }}</v-list-tile-title>
+            </v-list-tile>
+            <v-list-tile @click.prevent="logout">
+              <v-list-tile-title>{{ $t('logout') }}</v-list-tile-title>
+            </v-list-tile>
+          </v-list>
+        </v-menu>
+      </div>
     </template>
 
     <!-- Guest -->
@@ -46,7 +68,7 @@ export default {
 
   methods: {
     toggleDrawer () {
-      this.$emit('toggleDrawer')
+      this.$emit('toggleDrawer');
     },
     async logout () {
       this.busy = true;
@@ -63,12 +85,12 @@ export default {
       this.$router.push({ name: 'login' });
     }
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>
 
-.toolbar__title .router-link-active
-  text-decoration: none
+.v-toolbar__title .router-link-active
+  text-decoration: none !important;
 
 </style>

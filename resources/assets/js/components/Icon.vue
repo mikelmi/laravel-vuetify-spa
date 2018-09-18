@@ -25,10 +25,10 @@ export default {
 
   created () {
     if (this.name.startsWith('spinner')) {
-      this.spin = true
+      this.spin = true;
     }
   }
-}
+};
 </script>
 
 <style scoped>

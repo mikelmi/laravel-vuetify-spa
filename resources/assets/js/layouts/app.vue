@@ -1,10 +1,10 @@
 <template>
   <v-app light>
-    <v-navigation-drawer 
-      v-if="authenticated" 
-      persistent 
-      v-model="drawer" 
-      enable-resize-watcher 
+    <v-navigation-drawer
+      v-if="authenticated"
+      persistent
+      v-model="drawer"
+      enable-resize-watcher
       app
     >
       <nav-menu></nav-menu>
@@ -45,7 +45,7 @@ export default {
   data () {
     return {
       drawer: true
-    }
+    };
   }
-}
+};
 </script>
